@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NusantaraTravel - Jelajahi Dunia Bersama Kami</title>
+    
+    <!-- Google Fonts: Poppins for a modern look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Phosphor Icons for Modern Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
+                    <i class="ph-fill ph-paper-plane-tilt text-3xl text-tosca-500"></i>
+                    <span class="font-bold text-2xl tracking-tight text-gray-900">Nusa<span class="text-tosca-500">Travel</span></span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#beranda" class="text-gray-600 hover:text-tosca-500 font-medium transition duration-300">Beranda</a>
+                    <a href="#tujuan" class="text-gray-600 hover:text-tosca-500 font-medium transition duration-300">Tujuan</a>
+                    <a href="#testimonial" class="text-gray-600 hover:text-tosca-500 font-medium transition duration-300">Testimonial</a>
+                    <a href="#cta" class="bg-tosca-500 hover:bg-tosca-600 text-white px-6 py-2.5 rounded-full font-medium transition duration-300 shadow-lg shadow-tosca-500/30">Pesan Sekarang</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-tosca-500 focus:outline-none">
+                        <i class="ph ph-list text-3xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-2 flex flex-col">
+                <a href="#beranda" class="block px-3 py-3 text-gray-600 hover:text-tosca-500 hover:bg-tosca-50 rounded-lg font-medium">Beranda</a>
+                <a href="#tujuan" class="block px-3 py-3 text-gray-600 hover:text-tosca-500 hover:bg-tosca-50 rounded-lg font-medium">Tujuan</a>
+                <a href="#testimonial" class="block px-3 py-3 text-gray-600 hover:text-tosca-500 hover:bg-tosca-50 rounded-lg font-medium">Testimonial</a>
+                <a href="#cta" class="block px-3 py-3 mt-4 text-center bg-tosca-500 text-white rounded-lg font-medium">Pesan Sekarang</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="hero-bg min-h-screen flex items-center justify-center relative pt-20 pb-24">
+        <div class="text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto z-10">
+            <span class="inline-block py-1 px-3 rounded-full bg-tosca-500/20 text-tosca-200 backdrop-blur-sm border border-tosca-400/30 text-sm font-semibold tracking-wider mb-6">
+                Eksplorasi Tanpa Batas
+            </span>
+            <h1 class="text-3xl sm:text-5xl md:text-7xl font-extrabold text-white leading-tight mb-4 sm:mb-6">
+                Temukan Surga Tersembunyi di <span class="text-transparent bg-clip-text bg-gradient-to-r from-tosca-300 to-tosca-500">Seluruh Dunia</span>
+            </h1>
+            <p class="mt-4 text-base sm:text-xl text-gray-200 mb-6 sm:mb-10 max-w-2xl mx-auto font-light">
+                Kami siap membantu Anda merencanakan liburan impian dengan pengalaman tak terlupakan dan pelayanan terbaik.
+            </p>
+            
+            <!-- Search/Quick Action Bar -->
+            <div class="bg-white p-6 md:p-2 rounded-2xl md:rounded-full flex flex-col md:flex-row items-center justify-between max-w-4xl mx-auto shadow-2xl gap-2">
+                <div class="flex items-center w-full md:w-auto px-4 py-3 border-b md:border-b-0 md:border-r border-gray-100 flex-1">
+                    <i class="ph ph-map-pin text-2xl text-tosca-500 mr-3"></i>
+                    <div class="text-left w-full">
+                        <p class="text-xs text-gray-400 font-medium">Lokasi</p>
+                        <input type="text" placeholder="Mau ke mana?" class="w-full focus:outline-none text-gray-700 font-medium bg-transparent placeholder-gray-300">
+                    </div>
+                </div>
+                <div class="flex items-center w-full md:w-auto px-4 py-3 border-b md:border-b-0 md:border-r border-gray-100 flex-1">
+                    <i class="ph ph-calendar-blank text-2xl text-tosca-500 mr-3"></i>
+                    <div class="text-left w-full">
+                        <p class="text-xs text-gray-400 font-medium">Tanggal</p>
+                        <input type="text" placeholder="Pilih tanggal" onfocus="(this.type='date')" onblur="(this.type='text')" class="w-full focus:outline-none text-gray-700 font-medium bg-transparent text-sm">
+                    </div>
+                </div>
+                <div class="flex items-center w-full md:w-auto px-4 py-3 flex-1">
+                    <i class="ph ph-users text-2xl text-tosca-500 mr-3"></i>
+                    <div class="text-left w-full">
+                        <p class="text-xs text-gray-400 font-medium">Tamu</p>
+                        <select class="w-full focus:outline-none text-gray-700 font-medium bg-transparent cursor-pointer">
+                            <option>1 Orang</option>
+                            <option>2 Orang</option>
+                            <option>3+ Orang</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="w-full md:w-auto bg-tosca-500 hover:bg-tosca-600 text-white p-4 rounded-xl md:rounded-full transition duration-300 flex items-center justify-center">
+                    <i class="ph ph-magnifying-glass text-xl"></i>
+                    <span class="md:hidden ml-2 font-medium">Cari Destinasi</span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Scroll Down Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#tujuan" class="text-white opacity-70 hover:opacity-100 transition">
+                <i class="ph ph-arrow-down text-3xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Tujuan (Destinations) Section -->
+    <section id="tujuan" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-tosca-500 font-semibold tracking-wide uppercase text-sm mb-2">Destinasi Populer</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-gray-900">Kunjungi Tempat Terbaik</h3>
+                <p class="mt-4 text-gray-500 max-w-2xl mx-auto">Dari pantai berpasir putih hingga pegunungan megah, temukan destinasi yang akan membuat liburan Anda tak terlupakan.</p>
+            </div>
+
+            <!-- Grid Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 group cursor-pointer border border-gray-100 relative">
+                    <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full z-10 flex items-center gap-1">
+                        <i class="ph-fill ph-star text-yellow-400"></i>
+                        <span class="text-sm font-bold">4.9</span>
+                    </div>
+                    <div class="overflow-hidden relative h-64">
+                        <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bali" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 ease-in-out">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900 mb-1">Nusa Penida, Bali</h4>
+                                <p class="text-sm text-gray-500 flex items-center gap-1">
+                                    <i class="ph ph-map-pin text-tosca-500"></i> Indonesia
+                                </p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-xs text-gray-400">Mulai dari</p>
+                                <p class="text-lg font-bold text-tosca-500">Rp 1.5M</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-6 line-clamp-2">Nikmati keindahan tebing Kelingking Beach dan jernihnya air laut di pulau surga ini. Paket termasuk penginapan dan tour guide.</p>
+                        <div class="flex items-center justify-between border-t border-gray-100 pt-4">
+                            <div class="flex items-center gap-4 text-sm text-gray-500">
+                                <span class="flex items-center gap-1"><i class="ph ph-clock"></i> 3 Hari</span>
+                                <span class="flex items-center gap-1"><i class="ph ph-airplane-tilt"></i> Penerbangan</span>
+                            </div>
+                            <button class="text-tosca-600 font-semibold hover:text-tosca-700 flex items-center gap-1 group-hover:translate-x-1 transition duration-300">
+                                Detail <i class="ph ph-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 group cursor-pointer border border-gray-100 relative">
+                    <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full z-10 flex items-center gap-1">
+                        <i class="ph-fill ph-star text-yellow-400"></i>
+                        <span class="text-sm font-bold">5.0</span>
+                    </div>
+                    <div class="overflow-hidden relative h-64">
+                        <img src="https://images.unsplash.com/photo-1516690561799-46d8f74f9abf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Raja Ampat" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 ease-in-out">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900 mb-1">Raja Ampat, Papua</h4>
+                                <p class="text-sm text-gray-500 flex items-center gap-1">
+                                    <i class="ph ph-map-pin text-tosca-500"></i> Indonesia
+                                </p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-xs text-gray-400">Mulai dari</p>
+                                <p class="text-lg font-bold text-tosca-500">Rp 4.2M</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-6 line-clamp-2">Eksplorasi gugusan pulau karang menakjubkan dan keanekaragaman hayati bawah laut terbaik di dunia.</p>
+                        <div class="flex items-center justify-between border-t border-gray-100 pt-4">
+                            <div class="flex items-center gap-4 text-sm text-gray-500">
+                                <span class="flex items-center gap-1"><i class="ph ph-clock"></i> 5 Hari</span>
+                                <span class="flex items-center gap-1"><i class="ph ph-boat"></i> Kapal Pesiar</span>
+                            </div>
+                            <button class="text-tosca-600 font-semibold hover:text-tosca-700 flex items-center gap-1 group-hover:translate-x-1 transition duration-300">
+                                Detail <i class="ph ph-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 group cursor-pointer border border-gray-100 relative">
+                    <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full z-10 flex items-center gap-1">
+                        <i class="ph-fill ph-star text-yellow-400"></i>
+                        <span class="text-sm font-bold">4.8</span>
+                    </div>
+                    <div class="overflow-hidden relative h-64">
+                        <img src="https://plus.unsplash.com/premium_photo-1661963652315-d5a9d26637dd?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Cappadocia" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 ease-in-out">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900 mb-1">Cappadocia</h4>
+                                <p class="text-sm text-gray-500 flex items-center gap-1">
+                                    <i class="ph ph-map-pin text-tosca-500"></i> Turki
+                                </p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-xs text-gray-400">Mulai dari</p>
+                                <p class="text-lg font-bold text-tosca-500">Rp 12M</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-6 line-clamp-2">Terbang melintasi lembah peri dengan balon udara panas di saat matahari terbit. Pengalaman magis yang tak terlupakan.</p>
+                        <div class="flex items-center justify-between border-t border-gray-100 pt-4">
+                            <div class="flex items-center gap-4 text-sm text-gray-500">
+                                <span class="flex items-center gap-1"><i class="ph ph-clock"></i> 7 Hari</span>
+                                <span class="flex items-center gap-1"><i class="ph ph-bed"></i> Hotel Gua</span>
+                            </div>
+                            <button class="text-tosca-600 font-semibold hover:text-tosca-700 flex items-center gap-1 group-hover:translate-x-1 transition duration-300">
+                                Detail <i class="ph ph-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="border-2 border-tosca-500 text-tosca-600 hover:bg-tosca-500 hover:text-white px-8 py-3 rounded-full font-semibold transition duration-300">
+                    Lihat Semua Destinasi
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section id="testimonial" class="py-24 bg-white relative overflow-hidden">
+        <!-- Decorative Background Blob -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-72 h-72 rounded-full bg-tosca-50 opacity-50 blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 rounded-full bg-tosca-100 opacity-40 blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-tosca-500 font-semibold tracking-wide uppercase text-sm mb-2">Testimonial</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-gray-900">Apa Kata Mereka?</h3>
+                <p class="mt-4 text-gray-500 max-w-2xl mx-auto">Ribuan pelanggan telah mempercayakan perjalanan liburan mereka kepada kami. Inilah pengalaman mereka.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-white p-8 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-50 hover:-translate-y-2 transition duration-300">
+                    <div class="flex items-center gap-1 mb-6 text-yellow-400">
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-8 italic relative">
+                        <i class="ph-fill ph-quotes text-3xl text-tosca-100 absolute -top-4 -left-2 -z-10"></i>
+                        "Liburan ke Bali sangat luar biasa! Itinerary yang disusun sangat rapi, hotelnya nyaman, dan guide-nya sangat ramah. Benar-benar anti ribet."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Sarah" class="w-12 h-12 rounded-full object-cover border-2 border-tosca-200">
+                        <div>
+                            <h5 class="font-bold text-gray-900">Sarah Wijayanto</h5>
+                            <p class="text-xs text-gray-500">Karyawan Swasta</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-white p-8 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-50 hover:-translate-y-2 transition duration-300">
+                    <div class="flex items-center gap-1 mb-6 text-yellow-400">
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-8 italic relative">
+                        <i class="ph-fill ph-quotes text-3xl text-tosca-100 absolute -top-4 -left-2 -z-10"></i>
+                        "Pengalaman pertama ke Raja Ampat dan tidak mengecewakan. NusaTravel mengurus semuanya dari A sampai Z. Fasilitas divingnya juara!"
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Budi" class="w-12 h-12 rounded-full object-cover border-2 border-tosca-200">
+                        <div>
+                            <h5 class="font-bold text-gray-900">Budi Santoso</h5>
+                            <p class="text-xs text-gray-500">Fotografer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-white p-8 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-50 hover:-translate-y-2 transition duration-300">
+                    <div class="flex items-center gap-1 mb-6 text-yellow-400">
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star-half"></i>
+                    </div>
+                    <p class="text-gray-600 mb-8 italic relative">
+                        <i class="ph-fill ph-quotes text-3xl text-tosca-100 absolute -top-4 -left-2 -z-10"></i>
+                        "Website yang mudah digunakan, customer service fast respon. Saya dapat promo menarik untuk liburan keluarga ke Turki. Terima kasih!"
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Amanda" class="w-12 h-12 rounded-full object-cover border-2 border-tosca-200">
+                        <div>
+                            <h5 class="font-bold text-gray-900">Amanda R.</h5>
+                            <p class="text-xs text-gray-500">Ibu Rumah Tangga</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action (CTA) Section -->
+    <section id="cta" class="py-20 relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-br from-tosca-500 to-tosca-700 rounded-[2.5rem] p-10 md:p-16 text-center relative overflow-hidden shadow-2xl">
+                <!-- Background Pattern -->
+                <div class="absolute inset-0 opacity-10">
+                    <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <pattern id="pattern" width="40" height="40" patternUnits="userSpaceOnUse">
+                                <circle cx="2" cy="2" r="2" fill="currentColor"></circle>
+                            </pattern>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#pattern)"></rect>
+                    </svg>
+                </div>
+                
+                <div class="relative z-10">
+                    <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Siap Untuk Petualangan Anda Selanjutnya?</h2>
+                    <p class="text-tosca-100 text-lg mb-10 max-w-2xl mx-auto">Dapatkan diskon eksklusif hingga 30% untuk pemesanan pertama Anda. Jangan tunda liburan impian Anda, rancang sekarang bersama kami.</p>
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <button class="bg-white text-tosca-600 font-bold py-4 px-8 rounded-full shadow-lg hover:bg-gray-50 hover:scale-105 transition duration-300 flex items-center justify-center gap-2">
+                            Pesan Sekarang <i class="ph-bold ph-arrow-right"></i>
+                        </button>
+                        <button class="bg-transparent border-2 border-white text-white font-bold py-4 px-8 rounded-full hover:bg-white/10 transition duration-300">
+                            Hubungi Konsultan
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Brand Info -->
+                <div class="lg:col-span-1">
+                    <div class="flex items-center gap-2 mb-6">
+                        <i class="ph-fill ph-paper-plane-tilt text-3xl text-tosca-500"></i>
+                        <span class="font-bold text-2xl tracking-tight text-white">Nusa<span class="text-tosca-500">Travel</span></span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                        Kami adalah agen perjalanan terpercaya yang berdedikasi untuk memberikan pengalaman liburan terbaik dan tak terlupakan ke berbagai destinasi di seluruh dunia.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-tosca-500 transition duration-300 text-gray-300 hover:text-white">
+                            <i class="ph-fill ph-instagram-logo text-xl"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-tosca-500 transition duration-300 text-gray-300 hover:text-white">
+                            <i class="ph-fill ph-facebook-logo text-xl"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-tosca-500 transition duration-300 text-gray-300 hover:text-white">
+                            <i class="ph-fill ph-twitter-logo text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Perusahaan</h4>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-tosca-400 transition">Tentang Kami</a></li>
+                        <li><a href="#" class="hover:text-tosca-400 transition">Karir</a></li>
+                        <li><a href="#" class="hover:text-tosca-400 transition">Blog Perjalanan</a></li>
+                        <li><a href="#" class="hover:text-tosca-400 transition">Syarat & Ketentuan</a></li>
+                        <li><a href="#" class="hover:text-tosca-400 transition">Kebijakan Privasi</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Hubungi Kami</h4>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li class="flex items-start gap-3">
+                            <i class="ph ph-map-pin text-tosca-500 text-lg mt-0.5"></i>
+                            <span>Jl. Sudirman Kav 12, Jakarta Selatan, Indonesia 12190</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="ph ph-phone text-tosca-500 text-lg"></i>
+                            <span>+62 812 3456 7890</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="ph ph-envelope-simple text-tosca-500 text-lg"></i>
+                            <span>hello@nusatravel.com</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Buletin Kami</h4>
+                    <p class="text-sm text-gray-400 mb-4">Dapatkan penawaran eksklusif dan tips perjalanan langsung ke inbox Anda.</p>
+                    <form class="flex flex-col gap-3">
+                        <input type="email" placeholder="Alamat Email Anda" class="bg-gray-800 border border-gray-700 text-white text-sm rounded-lg focus:ring-tosca-500 focus:border-tosca-500 block w-full p-3 outline-none transition">
+                        <button type="button" class="bg-tosca-500 hover:bg-tosca-600 text-white font-medium rounded-lg text-sm w-full px-5 py-3 text-center transition duration-300">
+                            Berlangganan
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">
+                    &copy; 2023 NusantaraTravel. Hak Cipta Dilindungi.
+                </p>
+                <div class="flex gap-4">
+                    <i class="ph-fill ph-stripe-logo text-3xl text-gray-600"></i>
+                    <i class="ph-fill ph-paypal-logo text-3xl text-gray-600"></i>
+                    <i class="ph-fill ph-visa-logo text-3xl text-gray-600"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu and interactions -->
+    <script src="scripts.js"></script>
+</body>
+</html>
